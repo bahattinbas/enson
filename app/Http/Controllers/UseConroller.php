@@ -26,6 +26,16 @@ class UseConroller extends Controller
     return view('layouts.ogrencigiris');
     // code...
   }
+
+  public function belgeonay($id)
+  {
+    $ref=$this->database->getReference("basvurular/cap/$id")->getvalue();
+    $ref =$this->database->getReference("basvurular")
+    ->update(["cap/$id/basvurudurumu"=>"basvuru onaylandı"]);
+
+    return view('layouts.onayekran');
+  }
+
 public function goster(){
   $data= basvuru::whereNotNull('intibak')->get();
 

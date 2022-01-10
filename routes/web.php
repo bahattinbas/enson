@@ -138,3 +138,4 @@ Route::get('adminbasvurudgs',[UseConroller::class, 'admindgs']);
 Route::get('adminbasvuruintibak',[UseConroller::class, 'adminintibak']);
 Route::get('adminbasvuruytg',[UseConroller::class, 'adminytg']);
 Route::get('adminbasvuruyazokulu',[UseConroller::class, 'adminyazokulu']);
+Route::get('onaylandı/{id}',[UseConroller::class, 'belgeonay']);

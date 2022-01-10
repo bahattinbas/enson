@@ -15,13 +15,18 @@
       <td>ogrencino</td>
       <td>dilekce</td>
       <td>Başvuru Durumu</td>
+      <td>Onayla</td>
+      <td>Reddet</td>
   </tr>
+  @forelse($bilgiler as $key => $item)
 @foreach ($basvurus as $basvuru)
-@forelse($bilgiler as $key => $item)
+
   <tr>
     <td>{{$basvuru['ogrencino']}}</td>
     <td><a href="uploads/dilekce/{{$basvuru['dilekce']}}">indir</a></td>
     <td>{{$item['cap']}}</td>
+    <td><a href="{{url('onaylandı/'.$key)}}"><button type="submit" class="btn btn-block btn-primary" name="button" >Onayla</button></a></td>
+    <td><button type="submit" class="btn btn-block btn-primary" name="button" >Reddet</button></td>
 
   </tr>
 @empty
