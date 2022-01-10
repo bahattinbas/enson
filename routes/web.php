@@ -141,6 +141,9 @@ Route::get('adminbasvuruintibak',[UseConroller::class, 'adminintibak']);
 Route::get('adminbasvuruytg',[UseConroller::class, 'adminytg']);
 Route::get('adminbasvuruyazokulu',[UseConroller::class, 'adminyazokulu']);
 Route::get('onaylandi/{id}',[UseConroller::class, 'belgeonay']);
+Route::get('basvurularim/{id}',[UseConroller::class, 'basvurularim']);
 Route::get('onaylandidgs/{id}',[UseConroller::class, 'belgeonaydgs']);
-
 Route::get('reddedildi/{id}',[UseConroller::class, 'belgered']);
+Route::get('basvurularim',[UseConroller::class, 'bilgilerim']);
+Route::get('basvurularim',[UseConroller::class, 'bilgilerimyty']);
+Route::get('basvurularim/{id}',[UseConroller::class, 'basvurularimyty']);

@@ -22,6 +22,42 @@ class UseConroller extends Controller
 
 
       }
+      public function basvurularim($id)
+      {
+        $ref=$this->database->getReference("basvurular/cap/$id")->getvalue();
+        $ref =$this->database->getReference("basvurular");
+
+
+
+              $bilgiler = $this->database->getReference("basvurular/cap/$id")->getvalue();
+
+              return view('layouts.basvurularim',['basvurus'=>$data],compact('bilgiler'));
+
+      }
+      public function bilgilerim()
+
+      {
+        $data= basvuru::whereNotNull('cap')->get();
+        $bilgiler = $this->database->getReference("basvurular/cap")->getvalue();
+        return view('layouts.basvurularim',['basvurus'=>$data],compact('bilgiler'));
+
+      }
+      public function basvurularimyty($id)
+      {
+        $ref=$this->database->getReference("basvurular/yataygecis/$id")->getvalue();
+        $ref =$this->database->getReference("basvurular");
+
+
+      }
+      public function bilgilerimyty()
+
+      {
+        $data= basvuru::whereNotNull('yataygecis')->get();
+        $bilgileryty = $this->database->getReference("basvurular/yataygecis")->getvalue();
+
+        return view('layouts.basvurularim',['basvurus'=>$data],compact('bilgileryty'));
+
+      }
 
   public function ogrencigiris()
   {
@@ -35,7 +71,7 @@ class UseConroller extends Controller
     $ref =$this->database->getReference("basvurular")
     ->update(["cap/$id/basvurudurumu"=>"basvuru onaylandı"]);
 
-    return view('layouts.onayekran');
+      return view('layouts.onayekran');
   }
 
   public function belgered($id)
@@ -98,6 +134,48 @@ return view('layouts.adminbasvuruyazokulu',['basvurus'=>$data],);
 
     public function alma (Request $req)
     {
+      $cap='basvuruyok'
+      $ref_tablename='basvurular/cap';
+      $postData = [
+        'ogrNo'=>$req->no,
+        'basvurudurumu'=>$req->cap,
+
+      ];
+      $postRef = $this->database->getReference($ref_tablename)->push($postData);
+
+      $cap='basvuruyok'
+      $ref_tablename='basvurular/yataygecis';
+      $postData = [
+        'ogrNo'=>$req->no,
+        'basvurudurumu'=>$req->cap,
+
+      ];
+      $postRef = $this->database->getReference($ref_tablename)->push($postData);
+      $cap='basvuruyok'
+      $ref_tablename='basvurular/intibak';
+      $postData = [
+        'ogrNo'=>$req->no,
+        'basvurudurumu'=>$req->cap,
+
+      ];
+      $postRef = $this->database->getReference($ref_tablename)->push($postData);
+      $cap='basvuruyok'
+      $ref_tablename='basvurular/dikeygecis';
+      $postData = [
+        'ogrNo'=>$req->no,
+        'basvurudurumu'=>$req->cap,
+
+      ];
+      $postRef = $this->database->getReference($ref_tablename)->push($postData);
+      $cap='basvuruyok'
+      $ref_tablename='basvurular/yazokulu';
+      $postData = [
+        'ogrNo'=>$req->no,
+        'basvurudurumu'=>$req->cap,
+
+      ];
+      $postRef = $this->database->getReference($ref_tablename)->push($postData);
+
       $ref_tablename='bilgiler';
       $postData = [
         'ogrNo'=>$req->no,
@@ -346,12 +424,7 @@ return view('layouts.adminbasvuruyazokulu',['basvurus'=>$data],);
      return view('layouts.basvurucap', $data);
 
    }
-   public function basvurularim()
-  {
-    $data = ['LoggedUserInfo'=>basvuru::where('id','=', session('LoggedUser'))->first()];
-    return view('layouts.basvurularim', $data);
 
-  }
    public function dgs()
     {
       $data = ['LoggedUserInfo'=>Kullani::where('id','=', session('LoggedUser'))->first()];
