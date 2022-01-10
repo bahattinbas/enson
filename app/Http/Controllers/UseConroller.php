@@ -134,48 +134,6 @@ return view('layouts.adminbasvuruyazokulu',['basvurus'=>$data],);
 
     public function alma (Request $req)
     {
-      $cap='basvuruyok'
-      $ref_tablename='basvurular/cap';
-      $postData = [
-        'ogrNo'=>$req->no,
-        'basvurudurumu'=>$req->cap,
-
-      ];
-      $postRef = $this->database->getReference($ref_tablename)->push($postData);
-
-      $cap='basvuruyok'
-      $ref_tablename='basvurular/yataygecis';
-      $postData = [
-        'ogrNo'=>$req->no,
-        'basvurudurumu'=>$req->cap,
-
-      ];
-      $postRef = $this->database->getReference($ref_tablename)->push($postData);
-      $cap='basvuruyok'
-      $ref_tablename='basvurular/intibak';
-      $postData = [
-        'ogrNo'=>$req->no,
-        'basvurudurumu'=>$req->cap,
-
-      ];
-      $postRef = $this->database->getReference($ref_tablename)->push($postData);
-      $cap='basvuruyok'
-      $ref_tablename='basvurular/dikeygecis';
-      $postData = [
-        'ogrNo'=>$req->no,
-        'basvurudurumu'=>$req->cap,
-
-      ];
-      $postRef = $this->database->getReference($ref_tablename)->push($postData);
-      $cap='basvuruyok'
-      $ref_tablename='basvurular/yazokulu';
-      $postData = [
-        'ogrNo'=>$req->no,
-        'basvurudurumu'=>$req->cap,
-
-      ];
-      $postRef = $this->database->getReference($ref_tablename)->push($postData);
-
       $ref_tablename='bilgiler';
       $postData = [
         'ogrNo'=>$req->no,
