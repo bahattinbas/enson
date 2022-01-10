@@ -17,7 +17,7 @@
                      <h4>Kişisel Bilgiler</h4><hr>
 
                      <table class="table table-hover">
-                       <tr><td class="tab">Numara:</td> <td class="tab2">{{ $LoggedUserInfo['ogrencino'] }}</td></tr>
+                       <tr><td class="tab">Numara:</td> <td class="tab2"></td></tr>
 
                        <tr><td><a href="{{ route('cıkıs') }}">Logout</a></td> <td> </td></tr>
                      </table>

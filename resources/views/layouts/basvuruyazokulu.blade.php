@@ -37,7 +37,7 @@
   <a href="belgeler/Yaz.docx"> Belgeyi İndir</a><br>
   <input type="file" name="dilekce" required class="course form-control"> <br><br>
 
-  <button type="submit" class="btn btn-block btn-primary" name="button" >Başvuru Yap</button>
+  <button type="submit" class="btn btn-block btn-primary" onclick="location='basvurularim'" name="button" >Başvuru Yap</button>
 
 </form>
 </div>

@@ -24,18 +24,19 @@
 <input name="ad" type="text" size="50px"> <br><br>
 <label> Ekler: </label> <label>Trankript  Ders Planı Ders İçerikleri disiplin Ösym </label>
 </div>
+<div >
+
+
 <form action="{{ route('dgskontrol') }}" method="post" enctype="multipart/form-data">
     @csrf
     <input type="hidden" name="dikeygecis" value="başvuru talebi var">
-    <input type="hidden" name="cap" value="başvuru talebi yok">
-    <input type="hidden" name="yazokulu" value="başvuru talebi yok">
-    <input type="hidden" name="intibak" value="başvuru talebi yok">
-    <input type="hidden" name="yataygecis" value="başvuru talebi yok">
+
     <input type="hidden" name="ogrencino" value="{{$LoggedUserInfo['no']}}"><br>
     <a href="belgeler/Yatay.docx"> Belgeyi İndir</a><br>
     <input type="file" name="dilekce" required class="course form-control"> <br><br>
 
-    <button type="submit" class="btn btn-block btn-primary" name="button" >Başvuru Yap</button>
+    <button type="submit" class="btn btn-block btn-primary" onclick="location='basvurularim'" name="button" >Başvuru Yap</button>
 
   </form>
+  </div>
 @stop

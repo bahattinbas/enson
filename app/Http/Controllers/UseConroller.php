@@ -190,6 +190,8 @@ return view('layouts.adminbasvuruyazokulu',['basvurus'=>$data],);
                  $basvuru->dilekce = $filename;
              }
     $basvuru->save();
+    return view('layouts.basvurularim');
+
    }
    public function basvuruyty (Request $req){
      $ref_tablename='basvurular/yataygecis';
@@ -219,6 +221,8 @@ return view('layouts.adminbasvuruyazokulu',['basvurus'=>$data],);
                        $basvuru->dilekce = $filename;
                    }
           $basvuru->save();
+          return view('layouts.basvurularim');
+
    }
    public function basvurudgs (Request $req){
      $ref_tablename='basvurular/dikeygecis';
@@ -248,6 +252,8 @@ return view('layouts.adminbasvuruyazokulu',['basvurus'=>$data],);
                        $basvuru->dilekce = $filename;
                    }
           $basvuru->save();
+          return view('layouts.basvurularim');
+
    }
    public function basvuruint (Request $req){
      $ref_tablename='basvurular/intibak';
@@ -276,6 +282,8 @@ return view('layouts.adminbasvuruyazokulu',['basvurus'=>$data],);
                        $basvuru->dilekce = $filename;
                    }
           $basvuru->save();
+          return view('layouts.basvurularim');
+
    }
    public function basvuruyazok (Request $req){
      $ref_tablename='basvurular/yazokulu';
@@ -305,6 +313,8 @@ return view('layouts.adminbasvuruyazokulu',['basvurus'=>$data],);
                        $basvuru->dilekce = $filename;
                    }
           $basvuru->save();
+          return view('layouts.basvurularim');
+
    }
    public function basvuru (Request $req)
     {
