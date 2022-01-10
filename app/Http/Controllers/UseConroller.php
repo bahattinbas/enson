@@ -177,6 +177,19 @@ return view('layouts.adminbasvuruyazokulu',['basvurus'=>$data],);
 
      ];
      $postRef = $this->database->getReference($ref_tablename)->push($postData);
+     $basvuru = new basvuru();
+     $basvuru->ogrencino=$req->ogrencino;
+     $basvuru->cap=$req->cap;
+
+     if($req->hasfile('dilekce'))
+             {
+                 $file = $req->file('dilekce');
+                 $extenstion = $file->getClientOriginalExtension();
+                 $filename = time().'.'.$extenstion;
+                 $file->move('uploads/dilekce/', $filename);
+                 $basvuru->dilekce = $filename;
+             }
+    $basvuru->save();
    }
    public function basvuruyty (Request $req){
      $ref_tablename='basvurular/yataygecis';
@@ -189,6 +202,23 @@ return view('layouts.adminbasvuruyazokulu',['basvurus'=>$data],);
 
      ];
      $postRef = $this->database->getReference($ref_tablename)->push($postData);
+
+           $basvuru = new basvuru();
+           $basvuru->ogrencino=$req->ogrencino;
+           $basvuru->cap=$req->cap;
+           $basvuru->yazokulu=$req->yazokulu;
+           $basvuru->yataygecis=$req->yataygecis;
+           $basvuru->dikeygecis=$req->dikeygecis;
+           $basvuru->intibak=$req->intibak;
+           if($req->hasfile('dilekce'))
+                   {
+                       $file = $req->file('dilekce');
+                       $extenstion = $file->getClientOriginalExtension();
+                       $filename = time().'.'.$extenstion;
+                       $file->move('uploads/dilekce/', $filename);
+                       $basvuru->dilekce = $filename;
+                   }
+          $basvuru->save();
    }
    public function basvurudgs (Request $req){
      $ref_tablename='basvurular/dikeygecis';
@@ -202,6 +232,22 @@ return view('layouts.adminbasvuruyazokulu',['basvurus'=>$data],);
      ];
      $postRef = $this->database->getReference($ref_tablename)->push($postData);
 
+           $basvuru = new basvuru();
+           $basvuru->ogrencino=$req->ogrencino;
+           $basvuru->cap=$req->cap;
+           $basvuru->yazokulu=$req->yazokulu;
+           $basvuru->yataygecis=$req->yataygecis;
+           $basvuru->dikeygecis=$req->dikeygecis;
+           $basvuru->intibak=$req->intibak;
+           if($req->hasfile('dilekce'))
+                   {
+                       $file = $req->file('dilekce');
+                       $extenstion = $file->getClientOriginalExtension();
+                       $filename = time().'.'.$extenstion;
+                       $file->move('uploads/dilekce/', $filename);
+                       $basvuru->dilekce = $filename;
+                   }
+          $basvuru->save();
    }
    public function basvuruint (Request $req){
      $ref_tablename='basvurular/intibak';
@@ -213,6 +259,23 @@ return view('layouts.adminbasvuruyazokulu',['basvurus'=>$data],);
 
      ];
      $postRef = $this->database->getReference($ref_tablename)->push($postData);
+
+           $basvuru = new basvuru();
+           $basvuru->ogrencino=$req->ogrencino;
+           $basvuru->cap=$req->cap;
+           $basvuru->yazokulu=$req->yazokulu;
+           $basvuru->yataygecis=$req->yataygecis;
+           $basvuru->dikeygecis=$req->dikeygecis;
+           $basvuru->intibak=$req->intibak;
+           if($req->hasfile('dilekce'))
+                   {
+                       $file = $req->file('dilekce');
+                       $extenstion = $file->getClientOriginalExtension();
+                       $filename = time().'.'.$extenstion;
+                       $file->move('uploads/dilekce/', $filename);
+                       $basvuru->dilekce = $filename;
+                   }
+          $basvuru->save();
    }
    public function basvuruyazok (Request $req){
      $ref_tablename='basvurular/yazokulu';
@@ -226,29 +289,43 @@ return view('layouts.adminbasvuruyazokulu',['basvurus'=>$data],);
      ];
      $postRef = $this->database->getReference($ref_tablename)->push($postData);
 
+           $basvuru = new basvuru();
+           $basvuru->ogrencino=$req->ogrencino;
+           $basvuru->cap=$req->cap;
+           $basvuru->yazokulu=$req->yazokulu;
+           $basvuru->yataygecis=$req->yataygecis;
+           $basvuru->dikeygecis=$req->dikeygecis;
+           $basvuru->intibak=$req->intibak;
+           if($req->hasfile('dilekce'))
+                   {
+                       $file = $req->file('dilekce');
+                       $extenstion = $file->getClientOriginalExtension();
+                       $filename = time().'.'.$extenstion;
+                       $file->move('uploads/dilekce/', $filename);
+                       $basvuru->dilekce = $filename;
+                   }
+          $basvuru->save();
    }
    public function basvuru (Request $req)
-   {
+    {
 
-
-     $basvuru = new basvuru();
-     $basvuru->ogrencino=$req->ogrencino;
-     $basvuru->cap=$req->cap;
-     $basvuru->yazokulu=$req->yazokulu;
-     $basvuru->yataygecis=$req->yataygecis;
-     $basvuru->dikeygecis=$req->dikeygecis;
-     $basvuru->intibak=$req->intibak;
-     if($req->hasfile('dilekce'))
-             {
-                 $file = $req->file('dilekce');
-                 $extenstion = $file->getClientOriginalExtension();
-                 $filename = time().'.'.$extenstion;
-                 $file->move('uploads/dilekce/', $filename);
-                 $basvuru->dilekce = $filename;
-             }
-
+      $basvuru = new basvuru();
+      $basvuru->ogrencino=$req->ogrencino;
+      $basvuru->cap=$req->cap;
+      $basvuru->yazokulu=$req->yazokulu;
+      $basvuru->yataygecis=$req->yataygecis;
+      $basvuru->dikeygecis=$req->dikeygecis;
+      $basvuru->intibak=$req->intibak;
+      if($req->hasfile('dilekce'))
+              {
+                  $file = $req->file('dilekce');
+                  $extenstion = $file->getClientOriginalExtension();
+                  $filename = time().'.'.$extenstion;
+                  $file->move('uploads/dilekce/', $filename);
+                  $basvuru->dilekce = $filename;
+              }
      $basvuru->save();
-     return redirect('basvurularim');
+
 
      $data = ['LoggedUserInfo'=>Kullani::where('id','=', session('LoggedUser'))->first()];
      return view('layouts.basvurucap', $data);
@@ -257,7 +334,14 @@ return view('layouts.adminbasvuruyazokulu',['basvurus'=>$data],);
    {
      $data = ['LoggedUserInfo'=>Kullani::where('id','=', session('LoggedUser'))->first()];
      return view('layouts.basvurucap', $data);
+
    }
+   public function basvurularim()
+  {
+    $data = ['LoggedUserInfo'=>basvuru::where('id','=', session('LoggedUser'))->first()];
+    return view('layouts.basvurularim', $data);
+
+  }
    public function dgs()
     {
       $data = ['LoggedUserInfo'=>Kullani::where('id','=', session('LoggedUser'))->first()];

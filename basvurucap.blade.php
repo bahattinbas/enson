@@ -23,14 +23,8 @@
 <div >
   <form action="{{ route('capkontrol') }}" method="post" enctype="multipart/form-data">
     @csrf
-    <input type="hidden" name="basvuru turu" value="cap">
-
-    <input type="hidden" name="cap" value="başvuru talebi var">
-
-    <input type="hidden" name="ogrencino" value="{{$LoggedUserInfo['no']}}"><br>
-    <a href="belgeler/CAP.docx"> Belgeyi İndir</a><br>
-    <input type="file" name="dilekce" required class="course form-control"> <br><br>
-
+    <input type="hidden" name="çap" value="başvuru talebi var">
+    <input type="hidden" name="öğrencino" value="{{$LoggedUserInfo['no']}}">
     <button type="submit" class="btn btn-block btn-primary" name="button" >Başvuru Yap</button>
 
   </form>

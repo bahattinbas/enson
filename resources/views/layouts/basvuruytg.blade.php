@@ -29,8 +29,9 @@
     <input type="hidden" name="yazokulu" value="başvuru talebi yok">
     <input type="hidden" name="intibak" value="başvuru talebi yok">
     <input type="hidden" name="dikeygecis" value="başvuru talebi yok">
-    <input type="hidden" name="ogrencino" value="{{$LoggedUserInfo['no']}}">
-    <input type="file" name="dilekce" required class="course form-control"> <br>
+    <input type="hidden" name="ogrencino" value="{{$LoggedUserInfo['no']}}"><br>
+    <a href="belgeler/Yatay.docx"> Belgeyi İndir</a><br>
+    <input type="file" name="dilekce" required class="course form-control"> <br><br>
 
     <button type="submit" class="btn btn-block btn-primary" name="button" >Başvuru Yap</button>
 
