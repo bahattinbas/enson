@@ -24,9 +24,9 @@
   <tr>
     <td>{{$basvuru['ogrencino']}}</td>
     <td><a href="uploads/dilekce/{{$basvuru['dilekce']}}">indir</a></td>
-    <td>{{$item['cap']}}</td>
-    <td><a href="{{url('onaylandı/'.$key)}}"><button type="submit" class="btn btn-block btn-primary" name="button" >Onayla</button></a></td>
-    <td><button type="submit" class="btn btn-block btn-primary" name="button" >Reddet</button></td>
+    <td>{{$item['basvurudurumu']}}</td>
+    <td><a href="{{url('onaylandi/'.$key)}}"><button type="submit" class="btn btn-block btn-primary" name="button" >Onayla</button></a></td>
+    <td><a href="{{url('reddedildi/'.$key)}}"><button type="submit" class="btn btn-block btn-primary" name="button" >Reddet</button></a></td>
 
   </tr>
 @empty

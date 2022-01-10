@@ -17,7 +17,9 @@ class UseConroller extends Controller
   public function __construct(Database $database)
       {
           $this->database = $database;
-          $this->tablename1='basvurular/cap';
+
+
+
 
       }
 
@@ -36,12 +38,31 @@ class UseConroller extends Controller
     return view('layouts.onayekran');
   }
 
+  public function belgered($id)
+  {
+    $ref=$this->database->getReference("basvurular/cap/$id")->getvalue();
+    $ref =$this->database->getReference("basvurular")
+    ->update(["cap/$id/basvurudurumu"=>"basvuru reddedildi"]);
+
+    return view('layouts.redekran');
+  }
+
+  public function belgeonaydgs($id)
+  {
+    $ref=$this->database->getReference("basvurular/dikeygecis/$id")->getvalue();
+    $ref =$this->database->getReference("basvurular")
+    ->update(["dikeygecis/$id/basvurudurumu"=>"basvuru onaylandı"]);
+
+    return view('layouts.onayekran');
+  }
+
+
 public function goster(){
   $data= basvuru::whereNotNull('intibak')->get();
 
 
 
-        $bilgiler = $this->database->getReference($this->tablename1)->getvalue();
+        $bilgiler = $this->database->getReference("basvurular/cap")->getvalue();
 
         return view('layouts.adminbasvurucap',['basvurus'=>$data],compact('bilgiler'));
 
@@ -49,13 +70,15 @@ public function goster(){
 public function admindgs(){
 $data= basvuru::whereNotNull('dikeygecis')->get();
 
-return view('layouts.adminbasvurudgs',['basvurus'=>$data],);
+  $bilgiler = $this->database->getReference("basvurular/dikeygecis")->getvalue();
+  return view('layouts.adminbasvurucap',['basvurus'=>$data],compact('bilgiler'));
 
 }
 public function adminintibak(){
 $data= basvuru::whereNotNull('intibak')->get();
 
-return view('layouts.adminbasvuruintibak',['basvurus'=>$data],);
+$bilgiler = $this->database->getReference("basvurular/dikeygecis")->getvalue();
+return view('layouts.adminbasvurucap',['basvurus'=>$data],compact('bilgiler'));
 
 }
 public function adminytg(){
@@ -147,7 +170,7 @@ return view('layouts.adminbasvuruyazokulu',['basvurus'=>$data],);
      $ref_tablename='basvurular/cap';
      $postData = [
        'ogrNo'=>$req->ogrencino,
-       'cap'=>$req->cap,
+       'basvurudurumu'=>$req->cap,
 
 
 
@@ -159,7 +182,7 @@ return view('layouts.adminbasvuruyazokulu',['basvurus'=>$data],);
      $ref_tablename='basvurular/yataygecis';
      $postData = [
        'ogrNo'=>$req->ogrencino,
-       'yataygecis'=>$req->yataygecis,
+       'basvurudurumu'=>$req->yataygecis,
 
 
 
@@ -171,7 +194,7 @@ return view('layouts.adminbasvuruyazokulu',['basvurus'=>$data],);
      $ref_tablename='basvurular/dikeygecis';
      $postData = [
        'ogrNo'=>$req->ogrencino,
-       'dikeygecis'=>$req->dikeygecis,
+       'basvurudurumu'=>$req->dikeygecis,
 
 
 
@@ -184,7 +207,7 @@ return view('layouts.adminbasvuruyazokulu',['basvurus'=>$data],);
      $ref_tablename='basvurular/intibak';
      $postData = [
        'ogrNo'=>$req->ogrencino,
-       'intibak'=>$req->intibak,
+       'basvurudurumu'=>$req->intibak,
 
 
 
@@ -195,7 +218,7 @@ return view('layouts.adminbasvuruyazokulu',['basvurus'=>$data],);
      $ref_tablename='basvurular/yazokulu';
      $postData = [
        'ogrNo'=>$req->ogrencino,
-       'yazokulu'=>$req->yazokulu,
+       'basvurudurumu'=>$req->yazokulu,
 
 
 

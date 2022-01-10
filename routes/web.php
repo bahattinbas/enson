@@ -136,6 +136,11 @@ Route::get('/basvuruyazokulu',[UseConroller::class, 'yazokulu']);
 Route::get('adminbasvurucap',[UseConroller::class, 'goster']);
 Route::get('adminbasvurudgs',[UseConroller::class, 'admindgs']);
 Route::get('adminbasvuruintibak',[UseConroller::class, 'adminintibak']);
+
+Route::get('adminbasvuruintibak',[UseConroller::class, 'adminintibak']);
 Route::get('adminbasvuruytg',[UseConroller::class, 'adminytg']);
 Route::get('adminbasvuruyazokulu',[UseConroller::class, 'adminyazokulu']);
-Route::get('onaylandı/{id}',[UseConroller::class, 'belgeonay']);
+Route::get('onaylandi/{id}',[UseConroller::class, 'belgeonay']);
+Route::get('onaylandidgs/{id}',[UseConroller::class, 'belgeonaydgs']);
+
+Route::get('reddedildi/{id}',[UseConroller::class, 'belgered']);
